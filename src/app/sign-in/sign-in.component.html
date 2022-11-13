@@ -1,0 +1,18 @@
+<section id="signIn">
+   <div class="container">
+       <form [formGroup]="signIn" (ngSubmit)="signIn.valid&&saveForm()">
+        <div class="form w-50 m-auto">
+            <input [class.is-valid]="signIn.controls['email'].status=='VALID'" formControlName="email" type="email" placeholder="Enter Your Email" class="form-control">
+            <div *ngIf="signIn.controls['email'].errors != null && signIn.controls['email'].touched " class="alert alert-danger" role="alert">
+                <p class="text-danger">Your email is not valid</p>
+            </div>
+            <input [class.is-valid]="signIn.controls['password'].status=='VALID'" formControlName="password" type="password" placeholder="Enter Your Password" class="form-control my-3">
+            <div *ngIf="signIn.controls['password'].errors != null && signIn.controls['password'].touched " class="alert alert-danger" role="alert">
+                <p class="text-danger">Your password is not valid</p>
+            </div>
+            <button type="submit" class="btn btn-info w-100">Sign In</button>
+            <p class="text-center text-white">Don't have an account !? <a class="linkReg" (click)="register()">Sign up</a></p>
+        </div>
+       </form>
+   </div>
+</section>

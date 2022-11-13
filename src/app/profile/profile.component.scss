@@ -1,0 +1,20 @@
+
+#profile {
+    min-height: 100vh;
+    background-color: #666;
+}
+
+.note {
+    min-height: 230px;
+    width: 230px;
+    background-color: #fcc;
+    text-align: center;
+    padding: 10px;
+}
+
+i {
+    cursor: pointer;
+    float: right;
+}
+.clr{clear: right;}
+.center{position: absolute;top:20%;left: 50%;}

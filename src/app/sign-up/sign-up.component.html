@@ -1,0 +1,45 @@
+<section id="signUp">
+    <div class="container">
+        <form [formGroup]="signUp" (ngSubmit)="signUp.valid&&saveForm()">
+            <div class="form w-50 m-auto">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input [class.is-valid]="signUp.controls['first_name'].status=='VALID'" formControlName="first_name" type="text" placeholder="Enter First Name" class="form-control">
+                        <div *ngIf="signUp.controls['first_name'].errors != null && signUp.controls['first_name'].touched " class="alert alert-danger" role="alert">
+                            <p class="text-danger">Your Name is not valid</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                     <input [class.is-valid]="signUp.controls['last_name'].status=='VALID'" formControlName="last_name" type="text" placeholder="Enter Last Name" class="form-control">
+                     <div *ngIf="signUp.controls['last_name'].errors != null && signUp.controls['last_name'].touched " class="alert alert-danger" role="alert">
+                        <p class="text-danger">Your Name is not valid</p>
+                    </div>
+                    </div>
+                </div>
+                <input [class.is-valid]="signUp.controls['email'].status=='VALID'" formControlName="email" type="email" placeholder="Enter Your Email" class="form-control my-3">
+                <div *ngIf="signUp.controls['email'].errors != null && signUp.controls['email'].touched " class="alert alert-danger" role="alert">
+                    <p class="text-danger">Your Email is not valid</p>
+                </div>
+                <input [class.is-valid]="signUp.controls['age'].status=='VALID'" formControlName="age" type="number" placeholder="Enter Your age" class="form-control">
+                <div *ngIf="signUp.controls['age'].errors != null && signUp.controls['age'].touched " class="alert alert-danger" role="alert">
+                    <p class="text-danger">Your age is not valid</p>
+                </div>
+                <input [class.is-valid]="signUp.controls['password'].status=='VALID'" formControlName="password" type="password" placeholder="Enter Your password" class="form-control my-3">
+                <div *ngIf="signUp.controls['password'].errors != null && signUp.controls['password'].touched " class="alert alert-danger" role="alert">
+                    <p class="text-danger">Your Password is not valid</p>
+                </div>
+                <button [disabled]='signUp.invalid' [style.backgroundColor]="!signUp.valid?'gray':'#17a2b8'" type="submit" class="btn btn-info w-100">
+                    <span *ngIf="!isClicked">Sign Up</span>
+                    <span *ngIf="isClicked">Waiting...</span>
+                </button>
+                <div *ngIf="isSuccess" class="alert alert-success text-center" role="alert">
+                    {{ResponseMessage}}
+                </div>
+                <div *ngIf="isUniqueEmail" class="alert alert-danger text-center" role="alert">
+                    {{isUniqueEmailMessage}}
+                </div>
+                <p class="text-center text-white"> Have an account !? <a class="linkReg" (click)="register()">Sign in</a></p>
+            </div>
+        </form>
+    </div>
+ </section>
